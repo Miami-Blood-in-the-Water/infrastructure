@@ -17,6 +17,8 @@ resource "aws_ecs_service" "miami" {
     subnets = [
       "subnet-1bc7da7c"
     ]
+
+    assign_public_ip = true
   }
 
   lifecycle {
