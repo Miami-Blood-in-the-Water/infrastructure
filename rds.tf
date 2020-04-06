@@ -9,4 +9,5 @@ resource "aws_db_instance" "miami" {
   username             = "postgres"
   password             = "postgres"
   parameter_group_name = "default.postgres11"
+  skip_final_snapshot  = true
 }
