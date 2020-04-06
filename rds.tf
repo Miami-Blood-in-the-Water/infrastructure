@@ -10,7 +10,7 @@ resource "aws_db_instance" "miami" {
   password             = "postgres"
   parameter_group_name = "default.postgres11"
   skip_final_snapshot  = true
-  
+
   lifecycle {
     ignore_changes = [password]
   }
