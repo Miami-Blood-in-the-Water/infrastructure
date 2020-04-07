@@ -21,7 +21,26 @@ resource "aws_ecs_service" "miami" {
     assign_public_ip = true
   }
 
+  load_balancer {
+    target_group_arn = aws_lb_target_group.telnet.arn
+    container_name   = "miami"
+    container_port   = 4000
+  }
+
+  load_balancer {
+    target_group_arn = aws_lb_target_group.http.arn
+    container_name   = "miami"
+    container_port   = 4001
+  }
+
+  load_balancer {
+    target_group_arn = aws_lb_target_group.ws.arn
+    container_name   = "miami"
+    container_port   = 4002
+  }
+
   lifecycle {
-    ignore_changes = ["task_definition"]
+    ignore_changes = [
+    "task_definition"]
   }
 }
