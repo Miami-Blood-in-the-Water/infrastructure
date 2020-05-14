@@ -3,7 +3,8 @@ resource "aws_lb" "miami" {
   internal           = false
   load_balancer_type = "network"
   subnets = [
-  "subnet-1bc7da7c"]
+    "subnet-1bc7da7c"
+  ]
 }
 
 resource "aws_lb_target_group" "http" {
@@ -32,7 +33,7 @@ resource "aws_lb_target_group" "telnet" {
 
 resource "aws_lb_listener" "http" {
   load_balancer_arn = aws_lb.miami.arn
-  port              = "4001"
+  port              = "80"
   protocol          = "TCP"
 
   default_action {
